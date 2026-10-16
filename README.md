@@ -1,5 +1,6 @@
 
 
-![](pre_scores_differ.png)
-
-![](skill_change_does_not_differ_much.png)
+![](pre_scores_all.svg)
+![](skill_change_all.svg)
+![](pre_scores_took_two_tests.svg)
+![](skill_change_took_two_tests.svg)
