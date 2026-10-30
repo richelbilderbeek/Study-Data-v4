@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='504.00pt' height='186.00pt' viewBox='0 0 504.00 186.00'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1MDQuMDB8MC4wMHwxODYuMDA='>
+    <rect x='0.00' y='0.00' width='504.00' height='186.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwxODYuMDA=)'>
+<rect x='0.000000000000064' y='0.00' width='504.00' height='186.00' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpMzAuODN8NDk4LjUyfDM3LjA0fDEyMi43Mw=='>
+    <rect x='30.83' y='37.04' width='467.69' height='85.69' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMzAuODN8NDk4LjUyfDM3LjA0fDEyMi43Mw==)'>
+<rect x='30.83' y='37.04' width='467.69' height='85.69' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
+<polyline points='30.83,108.58 498.52,108.58 ' style='stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='30.83,83.98 498.52,83.98 ' style='stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='30.83,59.38 498.52,59.38 ' style='stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='30.83,120.88 498.52,120.88 ' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='30.83,96.28 498.52,96.28 ' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='30.83,71.68 498.52,71.68 ' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='30.83,47.08 498.52,47.08 ' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='158.38,122.73 158.38,37.04 ' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='370.97,122.73 370.97,37.04 ' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;' />
+<line x1='158.38' y1='71.17' x2='158.38' y2='40.93' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<line x1='158.38' y1='96.28' x2='158.38' y2='117.81' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polygon points='78.66,71.17 78.66,96.28 238.10,96.28 238.10,71.17 78.66,71.17 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<line x1='78.66' y1='80.91' x2='238.10' y2='80.91' style='stroke-width: 2.13; stroke: #333333; stroke-linecap: butt; stroke-linejoin: miter;' />
+<line x1='370.97' y1='65.53' x2='370.97' y2='40.93' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<line x1='370.97' y1='90.13' x2='370.97' y2='118.83' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polygon points='291.25,65.53 291.25,90.13 450.69,90.13 450.69,65.53 291.25,65.53 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<line x1='291.25' y1='77.83' x2='450.69' y2='77.83' style='stroke-width: 2.13; stroke: #333333; stroke-linecap: butt; stroke-linejoin: miter;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwxODYuMDA=)'>
+<text x='25.90' y='123.91' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arimo";' textLength='7.81px' lengthAdjust='spacingAndGlyphs'>-2</text>
+<text x='25.90' y='99.31' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arimo";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='25.90' y='74.71' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arimo";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='25.90' y='50.11' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arimo";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>4</text>
+<polyline points='28.09,120.88 30.83,120.88 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='28.09,96.28 30.83,96.28 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='28.09,71.68 30.83,71.68 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='28.09,47.08 30.83,47.08 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='158.38,125.47 158.38,122.73 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='370.97,125.47 370.97,122.73 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<text x='158.38' y='133.72' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arimo";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='370.97' y='133.72' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arimo";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='264.67' y='145.86' text-anchor='middle' style='font-size: 11.00px; font-family: "Arimo";' textLength='33.66px' lengthAdjust='spacingAndGlyphs'>lect_AI</text>
+<text transform='translate(13.05,79.88) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-family: "Arimo";' textLength='69.16px' lengthAdjust='spacingAndGlyphs'>score_change</text>
+<text x='30.83' y='14.56' style='font-size: 13.20px; font-family: "Arimo";' textLength='462.19px' lengthAdjust='spacingAndGlyphs'>For all learners that took two tests and did not fluke the second test by 2 points,</text>
+<text x='30.83' y='28.81' style='font-size: 13.20px; font-family: "Arimo";' textLength='188.27px' lengthAdjust='spacingAndGlyphs'>AI tutorial increases scores 30%</text>
+<text x='498.52' y='159.68' text-anchor='end' style='font-size: 8.80px; font-family: "Arimo";' textLength='235.88px' lengthAdjust='spacingAndGlyphs'>score_change are different distributions, according to a t-test</text>
+<text x='498.52' y='169.19' text-anchor='end' style='font-size: 8.80px; font-family: "Arimo";' textLength='55.72px' lengthAdjust='spacingAndGlyphs'>p-value: 0.023</text>
+<text x='498.52' y='178.69' text-anchor='end' style='font-size: 8.80px; font-family: "Arimo";' textLength='161.45px' lengthAdjust='spacingAndGlyphs'>difference no: 1.148 difference yes: 1.515</text>
+</g>
+</g>
+</svg>
