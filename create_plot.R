@@ -106,10 +106,10 @@ testthat::expect_true(
 )
 
 compare_pre_scores <- function(t, title) {
-  verdict <- get_verdict(t)
+  verdict <- are_prescores_the_same_between_users(t)
   t$lect_AI <- as.factor(t$lect_AI)
   ggplot(t, aes(x = lect_AI, y = pre_score)) +
-    geom_boxplot() +
+    geom_violin() +
     labs(
       title = title,
       caption = paste0(
@@ -162,7 +162,8 @@ compare_score_change <- function(t, title) {
   t$score_change <- t$post_score - t$pre_score
   t$lect_AI <- as.factor(t$lect_AI)
 
-  ggplot(t, aes(x = lect_AI, y = score_change)) + geom_boxplot() +
+  ggplot(t, aes(x = lect_AI, y = score_change)) +
+    geom_violin() +
     labs(
       title = title,
       caption = paste0(
