@@ -297,3 +297,94 @@ compare_post_scores(get_data(), "All learners a different post-score")
 ggsave("post_scores_all.svg")
 compare_post_scores(get_data_for_two_tests(), "Learners that did both tests had different post-scores")
 ggsave("post_scores_took_two_tests.svg", width = 5)
+
+
+
+#######################################################################
+## Effect sizes
+#######################################################################
+#' Calculate pre-to-post effect sizes (score increase / standard deviation)
+#' for both AI tutor users (lect_AI == 1) and non-AI users (lect_AI == 0).
+get_effect_sizes <- function(t) {
+  # Calculate score change per learner
+  t$score_change <- t$post_score - t$pre_score
+
+  # Separate data into AI users and non-AI users
+  ai_users     <- t |> dplyr::filter(lect_AI == 1)
+  non_ai_users <- t |> dplyr::filter(lect_AI == 0)
+
+  # Internal function to calculate effect size for a given subset
+  calc_group_stats <- function(df) {
+    mean_change <- mean(df$score_change, na.rm = TRUE)
+    sd_pre      <- sd(df$pre_score, na.rm = TRUE)
+    sd_post     <- sd(df$post_score, na.rm = TRUE)
+    sd_pooled   <- sqrt((sd_pre^2 + sd_post^2) / 2)
+
+    list(
+      mean_increase      = mean_change,
+      sd_pre             = sd_pre,
+      sd_pooled          = sd_pooled,
+      es_pre_sd_baseline = mean_change / sd_pre,    # Effect size relative to pre-test variability
+      es_pooled_sd       = mean_change / sd_pooled  # Effect size relative to pooled variability
+    )
+  }
+
+  ai_stats     <- calc_group_stats(ai_users)
+  non_ai_stats <- calc_group_stats(non_ai_users)
+
+  results <- list(
+    ai_tutor = list(
+      effect_size_pre_sd    = round(ai_stats$es_pre_sd_baseline, 3),
+      effect_size_pooled_sd = round(ai_stats$es_pooled_sd, 3),
+      mean_increase         = round(ai_stats$mean_increase, 3),
+      sd_pre                = round(ai_stats$sd_pre, 3)
+    ),
+    no_ai_tutor = list(
+      effect_size_pre_sd    = round(non_ai_stats$es_pre_sd_baseline, 3),
+      effect_size_pooled_sd = round(non_ai_stats$es_pooled_sd, 3),
+      mean_increase         = round(non_ai_stats$mean_increase, 3),
+      sd_pre                = round(non_ai_stats$sd_pre, 3)
+    )
+  )
+
+  # Print formatted summary to console
+  cat("=======================================================\n")
+  cat(" PRE-TO-POST EFFECT SIZES (Standard Deviations Increase)\n")
+  cat("=======================================================\n")
+  cat("1. AI Tutor Group (lect_AI == 1):\n")
+  cat("   - Mean Increase:        ", results$ai_tutor$mean_increase, "points\n")
+  cat("   - Effect Size (Pre SD): ", results$ai_tutor$effect_size_pre_sd, "SDs\n")
+  cat("   - Effect Size (Pooled): ", results$ai_tutor$effect_size_pooled_sd, "SDs\n\n")
+  cat("2. No AI Tutor Group (lect_AI == 0):\n")
+  cat("   - Mean Increase:        ", results$no_ai_tutor$mean_increase, "points\n")
+  cat("   - Effect Size (Pre SD): ", results$no_ai_tutor$effect_size_pre_sd, "SDs\n")
+  cat("   - Effect Size (Pooled): ", results$no_ai_tutor$effect_size_pooled_sd, "SDs\n")
+  cat("=======================================================\n")
+
+  invisible(results)
+}
+
+# ----------------------------------------------------------------------
+# Example execution using your helper functions:
+# ----------------------------------------------------------------------
+
+# For learners that took both tests:
+res_two_tests <- get_effect_sizes(get_data_for_two_tests())
+
+# For learners that took both tests and did not fluke the second test:
+res_filtered  <- get_effect_sizes(get_data_for_two_tests_second_done_well(max_decrease = 1.99))
+
+
+# =======================================================
+#   PRE-TO-POST EFFECT SIZES (Standard Deviations Increase)
+# =======================================================
+# 1. AI Tutor Group (lect_AI == 1):
+# - Mean Increase:         1.515 points
+# - Effect Size (Pre SD):  1.168 SDs
+# - Effect Size (Pooled):  1.376 SDs
+#
+# 2. No AI Tutor Group (lect_AI == 0):
+# - Mean Increase:         1.148 points
+# - Effect Size (Pre SD):  0.97 SDs
+# - Effect Size (Pooled):  0.96 SDs
+# =======================================================
