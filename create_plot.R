@@ -188,3 +188,112 @@ compare_score_change(get_data_for_two_tests_second_done_well(max_decrease = 1.99
 # (1.515 - 1.148) / 1.148
 ggsave("skill_change_took_two_tests_second_done_well.svg", width = 7)
 
+
+
+
+
+
+
+
+
+## Postscores only
+
+# Postscore are the same
+get_test_data_with_same_postscore <- function() {
+  t <- get_data()
+  t$post_score <- rnorm(n = nrow(t), mean = 2.0)
+  t$post_score <- rnorm(n = nrow(t), mean = 3.0)
+  t
+}
+testthat::expect_silent(get_test_data_with_same_postscore())
+
+
+# Postscore different
+get_test_data_with_different_postscore <- function() {
+  t <- get_data()
+
+  t$post_score <- rnorm(n = nrow(t), mean = 2.0)
+
+  ai_users_indices <- which(t$lect_AI == 1)
+  t$post_score[ai_users_indices] <- rnorm(n = length(ai_users_indices), mean = 3.0)
+  t
+}
+testthat::expect_silent(get_test_data_with_different_postscore())
+
+
+#' Put in data and it will produce a verdict if the distributions differ
+are_postscores_the_same_between_users <- function(t) {
+  t$lect_AI <- as.factor(t$lect_AI)
+  results <- t.test(
+    x = t |> filter(lect_AI == 1) |> select(post_score) |> pull(),
+    y = t |> filter(lect_AI == 0) |> select(post_score) |> pull()
+  )
+  mean_yes <- mean(t |> filter(lect_AI == 1) |> select(post_score) |> pull())
+  mean_no <- mean(t |> filter(lect_AI == 0) |> select(post_score) |> pull())
+  if (results$p.value <= 0.05) {
+    verdict <- "pre-scores are different distributions, according to a t-test"
+    # Double-check my reasoning, these distributions are different
+    testthat::expect_true(t.test(x = rnorm(n = nrow(t)/2), y = rnorm(n = nrow(t)/2, mean = 1.0))$p.value < 0.05)
+
+  } else {
+    verdict <- "pre-scores are same distributions, according to a t-test"
+    # Double-check my reasoning, these distributions are the same
+    testthat::expect_true(t.test(x = rnorm(n = nrow(t)/2), y = rnorm(n = nrow(t)/2))$p.value > 0.05)
+  }
+  list(
+    verdict = verdict,
+    p_value = results$p.value,
+    mean_yes_users = mean_yes,
+    mean_no_users = mean_no
+  )
+}
+testthat::expect_true(
+  stringr::str_detect(
+    are_postscores_the_same_between_users(get_test_data_with_same_postscore())$verdict,
+    "same distribution"
+  )
+)
+testthat::expect_true(
+  stringr::str_detect(
+    are_postscores_the_same_between_users(get_test_data_with_different_postscore())$verdict,
+    "different distribution"
+  )
+)
+
+
+# Check: Indeed, all posttests come from a different distribution
+testthat::expect_true(
+  stringr::str_detect(
+    are_postscores_the_same_between_users(get_data())$verdict,
+    "different distributions"
+  )
+)
+# Check: Indeed, all posttests come from a different distribution,
+# even for only those learners that did two tests
+testthat::expect_true(
+  stringr::str_detect(
+    are_postscores_the_same_between_users(get_data_for_two_tests())$verdict,
+    "different distributions"
+  )
+)
+
+compare_post_scores <- function(t, title) {
+  verdict <- are_postscores_the_same_between_users(t)
+  t$lect_AI <- as.factor(t$lect_AI)
+  ggplot(t, aes(x = lect_AI, y = post_score)) +
+    geom_violin() +
+    labs(
+      title = title,
+      caption = paste0(
+        verdict,
+        "\np-value: ", round(verdict$p_value, digits = 3),
+        "\npost-score no: ", round(verdict$mean_no_users, digits = 3), " ",
+        "post-score yes: ", round(verdict$mean_yes_users, digits = 3)
+
+      )
+    )
+}
+compare_post_scores(get_data(), "All learners a different post-score")
+ggsave("post_scores_all.svg")
+compare_post_scores(get_data_for_two_tests(), "Learners that did both tests had different post-scores")
+ggsave("post_scores_took_two_tests.svg", width = 5)
